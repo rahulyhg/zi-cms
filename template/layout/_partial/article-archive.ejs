@@ -1,0 +1,6 @@
+  <div class="card mb-2">
+    <div class="card-body p-2 px-3">
+      <h4 class="card-title"><a href="<%- config.root %><%- item.path %>"><%- item.title || theme.default_post_title || "Untitled" %></a></h4>
+      <h6 class="card-subtitle mb-1 text-muted blockquote-footer"><%= item.date.format(config.date_format) %></h6>
+    </div>
+  </div>

@@ -1,0 +1,14 @@
+<%
+    var isTagIndex = page.type === 'tags' || page.type === 'tag';
+    var isCategoryIndex = page.type === 'categories' || page.type === 'category';
+%>
+
+<% if (isTagIndex) { %>
+	<a class="btn btn-outline-info m-1" href="<%- config.root %><%- item.path %>">
+		<i class="fa fa-tag"></i> <%- item.name || "Untitled" %>
+	</a>
+<% } else { %>
+	<a class="btn btn-outline-info m-1" href="<%- config.root %><%- item.path %>">
+		<i class="fa fa-thumb-tack"></i> <%- item.name || "Untitled" %>
+	</a>
+<% } %>
