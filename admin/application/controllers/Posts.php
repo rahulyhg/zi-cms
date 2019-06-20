@@ -90,7 +90,7 @@ class Posts extends CI_Controller {
 				];
 				array_push($cat_data, $cat);
 			}
-			$this->db->insert_batch('b_posts_cat', $cat_data);
+			$this->db->insert_batch('tb_posts_cat', $cat_data);
 		}
 
 		redirect('posts');
@@ -149,7 +149,7 @@ class Posts extends CI_Controller {
 				];
 				array_push($cat_data, $cat);
 			}
-			$this->db->insert_batch('b_posts_cat', $cat_data);
+			$this->db->insert_batch('tb_posts_cat', $cat_data);
 		}
 
 		redirect('posts');
