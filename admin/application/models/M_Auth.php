@@ -8,6 +8,6 @@ class M_Auth extends CI_Model{
 	function login($user){
 		$this->db->where(['username' => $user]);
 		$this->db->or_where(['email' => $user]);
-		return $this->db->get('b_users');
+		return $this->db->get('tb_users');
 	}
 }
