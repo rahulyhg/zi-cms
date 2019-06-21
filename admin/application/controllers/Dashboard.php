@@ -156,7 +156,14 @@ class Dashboard extends CI_Controller {
 
 	// Setting
 	public function setting(){
+		$data = [
+			'title' => 'Setting',
+			'subtitle' => 'Setting'
+		];
 
+		$this->header($data);
+		$this->load->view("v_setting");
+		$this->load->view("_template/footer");
 	}
 
 	public function notfound(){
