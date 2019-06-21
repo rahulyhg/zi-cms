@@ -35,7 +35,7 @@ class M_Admin extends CI_Model{
 
 	function listCat(){
 		$this->db->select('id_category, name');
-		return $this->db->get('b_category');
+		return $this->db->get('tb_category');
 	}
 
 	function postCat($id){

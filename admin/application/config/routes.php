@@ -51,7 +51,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'dashboard';
 $route['posts'] = 'dashboard/posts';
+$route['posts/new'] = 'dashboard/addPost';
+$route['posts/edit/(:num)'] = 'dashboard/editPost/$1';
 $route['pages'] = 'dashboard/pages';
+$route['pages/new'] = 'dashboard/addPages';
+$route['pages/edit/(:num)'] = 'dashboard/editPages/$1';
 $route['categories'] = 'dashboard/categories';
 $route['media'] = 'dashboard/media';
 $route['users'] = 'dashboard/users';

@@ -26,18 +26,6 @@ class Pages extends CI_Controller {
 		$this->load->model('M_Admin', 'model');
 	}
 
-	// Add Pages
-	public function new(){
-		$data = [
-			'title' => 'New Pages',
-			'subtitle' => 'Add New Page',
-			'template' => ['sidebar-collapse']
-		];
-
-		$this->load->view('_template/header', $data);
-		$this->load->view('v_pages_new');
-		$this->load->view('_template/footer');
-	}
 	// Action add
 	public function add(){
 		$title = $this->input->post('title');
@@ -63,19 +51,6 @@ class Pages extends CI_Controller {
 		redirect('pages');
 	}
 
-	// Edit Pages
-	public function edit($id){
-		$data = [
-			'title' => 'Edit Page',
-			'subtitle' => 'Edit Page',
-			'template' => ['sidebar-collapse'],
-			'pages' => $this->model->pagesGetById($id)->row()
-		];
-
-		$this->load->view('_template/header', $data);
-		$this->load->view('v_pages_edit');
-		$this->load->view('_template/footer');
-	}
 	// Action edit
 	public function editpages($id){
 		$title = $this->input->post('title');

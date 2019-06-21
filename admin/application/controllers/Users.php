@@ -23,7 +23,7 @@ class Users extends CI_Controller {
 		if (!$this->session->login) {
 			redirect('login');
 		}
-		$this->load->model('M_Users', 'model');
+		$this->load->model('M_Admin', 'model');
 	}
 
 	public function add(){

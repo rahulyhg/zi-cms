@@ -26,19 +26,6 @@ class Posts extends CI_Controller {
 		$this->load->model('M_Admin', 'model');
 	}
 
-	// Add Post
-	public function new(){
-		$data = [
-			'title' => 'New Posts',
-			'subtitle' => 'Add New Post',
-			'template' => ['sidebar-collapse'],
-			'list_cat' => $this->model->listCat()->result()
-		];
-
-		$this->load->view('_template/header', $data);
-		$this->load->view('v_posts_new');
-		$this->load->view('_template/footer');
-	}
 	// Action add
 	public function add(){
 		// insert post
@@ -84,21 +71,6 @@ class Posts extends CI_Controller {
 		redirect('posts');
 	}
 
-
-	// Edit Post
-	public function edit($id){
-		$data = ['title' => 'Edit Post',
-			'subtitle' => 'Edit Post',
-			'template' => ['sidebar-collapse'],
-			'list_cat' => $this->model->listCat()->result(),
-			'post' => $this->model->postGetById($id)->row()
-		];
-		$data['post_cat'] = $this->model->postCat($data['post']->id_post)->result();
-
-		$this->load->view('_template/header', $data);
-		$this->load->view('v_posts_edit');
-		$this->load->view('_template/footer');
-	}
 	// Action edit
 	public function editpost($id){
 		// edit post

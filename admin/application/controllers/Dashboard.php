@@ -53,6 +53,33 @@ class Dashboard extends CI_Controller {
 		$this->load->view('_template/footer');
 	}
 
+	public function addPost(){
+		$data = [
+			'title' => 'New Posts',
+			'subtitle' => 'Add New Post',
+			'template' => ['sidebar-collapse'],
+			'list_cat' => $this->model->listCat()->result()
+		];
+
+		$this->header($data);
+		$this->load->view('v_posts_new');
+		$this->load->view('_template/footer');
+	}
+
+	public function editPost($id){
+		$data = ['title' => 'Edit Post',
+			'subtitle' => 'Edit Post',
+			'template' => ['sidebar-collapse'],
+			'list_cat' => $this->model->listCat()->result(),
+			'post' => $this->model->postGetById($id)->row()
+		];
+		$data['post_cat'] = $this->model->postCat($data['post']->id_post)->result();
+
+		$this->header($data);
+		$this->load->view('v_posts_edit');
+		$this->load->view('_template/footer');
+	}
+
 	// Pages
 	public function pages(){
 		$data = [
@@ -63,6 +90,31 @@ class Dashboard extends CI_Controller {
 
 		$this->header($data);
 		$this->load->view('v_pages');
+		$this->load->view('_template/footer');
+	}
+
+	public function addPages(){
+		$data = [
+			'title' => 'New Pages',
+			'subtitle' => 'Add New Page',
+			'template' => ['sidebar-collapse']
+		];
+
+		$this->header($data);
+		$this->load->view('v_pages_new');
+		$this->load->view('_template/footer');
+	}
+
+	public function editPages($id){
+		$data = [
+			'title' => 'Edit Page',
+			'subtitle' => 'Edit Page',
+			'template' => ['sidebar-collapse'],
+			'pages' => $this->model->pagesGetById($id)->row()
+		];
+
+		$this->header($data);
+		$this->load->view('v_pages_edit');
 		$this->load->view('_template/footer');
 	}
 
