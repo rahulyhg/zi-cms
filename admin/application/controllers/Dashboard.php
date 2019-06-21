@@ -170,7 +170,7 @@ class Dashboard extends CI_Controller {
 		$data['title'] = '404 Page Not Found';
 		$data['subtitle'] = 'Error 404';
 
-		$this->load->view('_template/header', $data);
+		$this->header($data);
 		$this->load->view('_template/404');
 		$this->load->view('_template/footer');
 	}
