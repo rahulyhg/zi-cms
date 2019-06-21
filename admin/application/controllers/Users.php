@@ -26,18 +26,6 @@ class Users extends CI_Controller {
 		$this->load->model('M_Users', 'model');
 	}
 
-	public function index(){
-		$data = [
-			'title' => 'Users',
-			'subtitle' => 'All User',
-			'users' => $this->model->getUsers()->result()
-		];
-
-		$this->load->view('_template/header', $data);
-		$this->load->view('v_users');
-		$this->load->view('_template/footer');
-	}
-
 	public function add(){
 		$full_name = $this->input->post('full_name');
 		$username = $this->input->post('username');

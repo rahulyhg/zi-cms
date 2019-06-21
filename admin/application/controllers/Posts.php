@@ -23,19 +23,7 @@ class Posts extends CI_Controller {
 		if (!$this->session->login) {
 			redirect('login');
 		}
-		$this->load->model('M_Posts', 'model');
-	}
-
-	public function index(){
-		$data = [
-			'title' => 'Posts',
-			'subtitle' => 'All Posts',
-			'posts' => $this->model->getPost()->result()
-		];
-
-		$this->load->view('_template/header', $data);
-		$this->load->view('v_posts');
-		$this->load->view('_template/footer');
+		$this->load->model('M_Admin', 'model');
 	}
 
 	// Add Post
@@ -103,7 +91,7 @@ class Posts extends CI_Controller {
 			'subtitle' => 'Edit Post',
 			'template' => ['sidebar-collapse'],
 			'list_cat' => $this->model->listCat()->result(),
-			'post' => $this->model->getById($id)->row()
+			'post' => $this->model->postGetById($id)->row()
 		];
 		$data['post_cat'] = $this->model->postCat($data['post']->id_post)->result();
 

@@ -23,19 +23,7 @@ class Categories extends CI_Controller {
 		if (!$this->session->login) {
 			redirect('login');
 		}
-		$this->load->model('M_Category', 'model');
-	}
-
-	public function index(){
-		$data = [
-			'title' => 'Categories',
-			'subtitle' => 'All Categories',
-			'categories' => $this->model->getCategory()->result()
-		];
-
-		$this->load->view('_template/header', $data);
-		$this->load->view('v_categories');
-		$this->load->view('_template/footer');
+		$this->load->model('M_Admin', 'model');
 	}
 
 	public function add(){
@@ -75,7 +63,7 @@ class Categories extends CI_Controller {
 
 	public function getById($id){
 		header('Content-Type: application/json');
-		$data = $this->db->get_where('b_category', ['id_category' => $id])->row();
+		$data = $this->db->get_where('tb_category', ['id_category' => $id])->row();
 		echo json_encode($data);
 	}
 }

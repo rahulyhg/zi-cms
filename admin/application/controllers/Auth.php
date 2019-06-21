@@ -53,8 +53,6 @@ class Auth extends CI_Controller {
 				// Cek remember me
 				if ($this->input->post('remember')) {
 					# set cookie
-					// set_cookie('login', 'true', time() + 60);
-					// set_cookie($name[, $value = ''[, $expire = ''[, $domain = ''[, $path = '/'[, $prefix = ''[, $secure = NULL[, $httponly = NULL]]]]]]])
 				}
 
 				$userdata = [
@@ -77,41 +75,6 @@ class Auth extends CI_Controller {
 			$this->session->set_flashdata('msg', 'Username/Email salah!');
 			redirect('login');
 		}
-
-		// // // // //
-
-		// if ($this->input->post('remember')) {
-		// 	// Cookie
-		// 	echo "remember";
-		// }
-		// else{
-		// 	// not Cookie
-		// 	$data = $this->model->login($user)->row_array();
-
-		// 	if (count($data) > 0) {
-		// 		// proses login
-		// 		if (password_verify($password, $data['password'])) {
-		// 			$userdata = [
-		// 				'username' => $data['username'],
-		// 				'full_name' => $data['full_name'],
-		// 				'email' => $data['email'],
-		// 				'login' => TRUE
-		// 			];
-		// 			$this->session->set_userdata($userdata);
-		// 			redirect('');
-		// 		}
-		// 		else{
-		// 			// Password salah
-		// 			$this->session->set_flashdata('msg', 'Password salah!');
-		// 			redirect('login');
-		// 		}
-		// 	}
-		// 	else{
-		// 		// Username / email salah
-		// 		$this->session->set_flashdata('msg', 'Username/Email salah!');
-		// 		redirect('login');
-		// 	}
-		// }
 	}
 
 	public function logout(){

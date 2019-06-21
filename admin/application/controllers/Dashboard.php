@@ -18,14 +18,19 @@ class Dashboard extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-
-	private function header($data){
+	public function __construct(){
+		parent::__construct();
 		if (!$this->session->login) {
 			redirect('login');
 		}
+		$this->load->model('M_Admin', 'model');
+	}
+
+	private function header($data){
 		$this->load->view('_template/header', $data);
 	}
 
+	// Dashboard
 	public function index(){
 		$data['title'] = 'Dashboard';
 		$data['subtitle'] = 'Dashboard';
@@ -33,6 +38,73 @@ class Dashboard extends CI_Controller {
 		$this->header($data);
 		$this->load->view('main');
 		$this->load->view('_template/footer');
+	}
+
+	// Posts
+	public function posts(){
+		$data = [
+			'title' => 'Posts',
+			'subtitle' => 'All Posts',
+			'posts' => $this->model->getPost()->result()
+		];
+
+		$this->header($data);
+		$this->load->view('v_posts');
+		$this->load->view('_template/footer');
+	}
+
+	// Pages
+	public function pages(){
+		$data = [
+			'title' => 'Pages',
+			'subtitle' => 'All Pages',
+			'pages' => $this->model->getPages()->result()
+		];
+
+		$this->header($data);
+		$this->load->view('v_pages');
+		$this->load->view('_template/footer');
+	}
+
+	// Categories
+	public function categories(){
+		$data = [
+			'title' => 'Categories',
+			'subtitle' => 'All Categories',
+			'categories' => $this->model->getCategory()->result()
+		];
+
+		$this->header($data);
+		$this->load->view('v_categories');
+		$this->load->view('_template/footer');
+	}
+
+	// Media
+	public function media(){
+		$data['title'] = 'Media';
+		$data['subtitle'] = 'All Media';
+
+		$this->header($data);
+		$this->load->view('v_media');
+		$this->load->view('_template/footer');
+	}
+
+	// Users
+	public function users(){
+		$data = [
+			'title' => 'Users',
+			'subtitle' => 'All User',
+			'users' => $this->model->getUsers()->result()
+		];
+
+		$this->header($data);
+		$this->load->view('v_users');
+		$this->load->view('_template/footer');
+	}
+
+	// Setting
+	public function setting(){
+
 	}
 
 	public function notfound(){

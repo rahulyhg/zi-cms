@@ -23,20 +23,7 @@ class Pages extends CI_Controller {
 		if (!$this->session->login) {
 			redirect('login');
 		}
-		$this->load->model('M_Pages', 'model');
-	}
-
-	// View Pages
-	public function index(){
-		$data = [
-			'title' => 'Pages',
-			'subtitle' => 'All Pages',
-			'pages' => $this->model->getPages()->result()
-		];
-
-		$this->load->view('_template/header', $data);
-		$this->load->view('v_pages');
-		$this->load->view('_template/footer');
+		$this->load->model('M_Admin', 'model');
 	}
 
 	// Add Pages
@@ -82,7 +69,7 @@ class Pages extends CI_Controller {
 			'title' => 'Edit Page',
 			'subtitle' => 'Edit Page',
 			'template' => ['sidebar-collapse'],
-			'pages' => $this->model->getById($id)->row()
+			'pages' => $this->model->pagesGetById($id)->row()
 		];
 
 		$this->load->view('_template/header', $data);

@@ -55,6 +55,14 @@
             </span>
           </a>
         </li>
+        <li<?=(strtolower($page) == 'setting') ? ' class="active"' : '';?>>
+          <a href="<?=base_url('setting');?>">
+            <i class="fa fa-dashboard"></i> <span>Setting</span>
+            <span class="pull-right-container">
+              <small class="label pull-right label-success">0%</small>
+            </span>
+          </a>
+        </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Menu</span>
@@ -63,7 +71,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Menu v1</a></li>
+            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> General</a></li>
             <li><a href="index2.html"><i class="fa fa-circle-o"></i> Menu v2</a></li>
           </ul>
         </li>
